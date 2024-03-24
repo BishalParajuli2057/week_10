@@ -2,6 +2,7 @@ package com.example.week_10;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -25,16 +26,15 @@ public class AddUserActivity extends AppCompatActivity {
         maisteri = findViewById(R.id.msCheckBox);
         lisensiaation = findViewById(R.id.IciCheckBox);
         tohtoritutkinnon = findViewById(R.id.phdCheckBox);
-        UserStorage.getInstance(getApplicationContext()).loadUsersFromFile();
+        Button saveUserButton = findViewById(R.id.addUserButton);
+        saveUserButton.setOnClickListener(v -> addUser());
     }
 
-    public void addUserOnClicks(View view) {
-        int selectedId = radioDegreeProgram.getCheckedRadioButtonId();
-        String degreeProgram = determineDegreeProgram(selectedId);
-
+    private void addUser() {
         String firstNameStr = firstname.getText().toString();
         String lastNameStr = lastname.getText().toString();
         String emailStr = editemail.getText().toString();
+        String degreeProgram = determineDegreeProgram(radioDegreeProgram.getCheckedRadioButtonId());
         boolean kandiChecked = kandi.isChecked();
         boolean maisteriChecked = maisteri.isChecked();
         boolean lisensiaationChecked = lisensiaation.isChecked();
