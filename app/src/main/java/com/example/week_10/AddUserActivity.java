@@ -28,7 +28,7 @@ public class AddUserActivity extends AppCompatActivity {
         UserStorage.getInstance(getApplicationContext()).loadUsersFromFile();
     }
 
-    public void addUserOnClick(View view) {
+    public void addUserOnClicks(View view) {
         int selectedId = radioDegreeProgram.getCheckedRadioButtonId();
         String degreeProgram = determineDegreeProgram(selectedId);
 
