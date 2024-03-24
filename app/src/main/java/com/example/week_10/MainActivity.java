@@ -1,6 +1,5 @@
 package com.example.week_10;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setAdduser(View view){
-        Intent intent= new Intent(this, ListUserActivity.class);
+        Intent intent= new Intent(this, AddUserActivity.class);
         startActivity(intent);
     }
 }

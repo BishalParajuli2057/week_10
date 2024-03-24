@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ListUserActivity"
+            android:name=".AddUserActivity"
             android:exported="false" />
 
     </application>

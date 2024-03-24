@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ListUserActivity extends AppCompatActivity {
+public class AddUserActivity extends AppCompatActivity {
     private RadioGroup radioDegreeProgram;
     private EditText firstname, lastname, editemail;
     private CheckBox kandi, maisteri, lisensiaation, tohtoritutkinnon;
@@ -17,7 +17,6 @@ public class ListUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize your views correctly
         firstname = findViewById(R.id.textFirstName);
         lastname = findViewById(R.id.textLastName);
         editemail = findViewById(R.id.textEmail);
@@ -26,6 +25,7 @@ public class ListUserActivity extends AppCompatActivity {
         maisteri = findViewById(R.id.msCheckBox);
         lisensiaation = findViewById(R.id.IciCheckBox);
         tohtoritutkinnon = findViewById(R.id.phdCheckBox);
+        UserStorage.getInstance(getApplicationContext()).loadUsersFromFile();
     }
 
     public void addUserOnClick(View view) {
@@ -48,8 +48,11 @@ public class ListUserActivity extends AppCompatActivity {
     private String determineDegreeProgram(int selectedId) {
         if (selectedId == R.id.seRadioButton) return "Software Engineering";
         else if (selectedId == R.id.imRadioButton) return "Information Management";
-        else if (selectedId == R.id.ceRadioButton) return "Computer Engineering";
-        else if (selectedId == R.id.eeRadioButton) return "Electrical Engineering";
+        else if (selectedId == R.id.ceRadioButton) {
+            return "Computer Engineering";
+        } else if (selectedId == R.id.eeRadioButton) {
+            return "Electrical Engineering";
+        }
         return "";
     }
 }
